@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FESScript2.Creator.BlockDesigner"
+             xmlns:local="clr-namespace:FESScript2.Creator.BlockDes"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:SupportSettings="clr-namespace:FESScript2.Settings.Support"
              xmlns:SubUserControls="clr-namespace:FESScript2.UserControls.SubUserControls"

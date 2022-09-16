@@ -22,5 +22,12 @@ namespace FESScript2.UserControls.SubUserControls
                 return (io == IO.Input ? "I" : io == IO.Output ? "O" : "E") + id;
             }
         }
+        public string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
+            }
+        }
     }
 }

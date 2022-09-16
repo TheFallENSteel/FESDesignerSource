@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="25">
     <Grid>
-        <Border Width="25" Background="Orange" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+        <Border Width="25" Background="DarkOrange" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
     </Grid>
 </UserControl>

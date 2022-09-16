@@ -23,7 +23,7 @@ namespace FESScript2.UserControls.SubUserControls
             Grid grid = new Grid();
             grid.Children.Add(comboBox);
             this.Content = grid;
-            this.MouseDown += UserControl_MouseDown;
+            this.MouseDown += UserControl_MouseDown; 
             this.contentType = contentType;
             comboBox.MinWidth = 25;
             comboBox.Height = 15;
@@ -57,11 +57,19 @@ namespace FESScript2.UserControls.SubUserControls
         }
         private int id;
 
-        public string Name
+        public new string Name
         {
             get
             {
                 return $"M{Id}";
+            }
+        }
+
+        public string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
             }
         }
 
@@ -78,8 +86,22 @@ namespace FESScript2.UserControls.SubUserControls
         }
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            FESScript2.Creator.BlockDes.DesignContentWindow window = new FESScript2.Creator.BlockDes.DesignContentWindow(ref this.contentType, typeof(Combobox));
-            window.Show();
+            if (BlockDesign.MainWindow.isTypingContents)
+            {
+                if ((FESScript2.Creator.BlockDes.CommandType)BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == FESScript2.Creator.BlockDes.CommandType.StandartToBlockWrite || BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == null)
+                {
+                    BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                }
+                else
+                {
+                    BlockDesign.MainWindow.writeEvent.Invoke(RelativeName);
+                }
+            }
+            else
+            {
+                FESScript2.Creator.BlockDes.DesignContentWindow window = new FESScript2.Creator.BlockDes.DesignContentWindow(ref this.contentType, typeof(Combobox));
+                window.Show();
+            }
         }
     }
 }

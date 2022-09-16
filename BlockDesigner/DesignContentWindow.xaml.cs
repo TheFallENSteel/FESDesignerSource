@@ -26,19 +26,13 @@ namespace FESScript2.Creator.BlockDes
             InitializeComponent();
             if (this.contentsType != null) 
             { 
-                this.properties.collumn.Text = this.contentsType.collumn.ToString();
+                this.properties.column.Text = this.contentsType.column.ToString();
                 this.properties.id.Text = this.contentsType.id.ToString();
                 this.properties.text.Text = this.contentsType.text;
             }
             if (this.contentType != typeof(FESScript2.UserControls.SubUserControls.Combobox)) 
             {
-                properties.grid.Children.Remove(this.properties.Args);
-                this.properties.Args = null;
-            }
-            else 
-            {
-                Height = 270;
-                MinHeight = 270;
+                properties.RemoveArgs();
             }
         }
         private void Window_Closed(object sender, EventArgs e)

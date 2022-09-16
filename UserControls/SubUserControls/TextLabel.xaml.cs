@@ -38,11 +38,19 @@ namespace FESScript2.UserControls.SubUserControls
         }
         private int id;
 
-        public string Name
+        public new string Name
         {
             get
             {
                 return $"L{Id}";
+            }
+        }
+
+        public string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
             }
         }
 

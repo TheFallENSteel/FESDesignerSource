@@ -4,10 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>FESDesigner.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+    <Content Include="FESDesigner.ico" />
   </ItemGroup>
 
 </Project>

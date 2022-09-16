@@ -28,11 +28,18 @@ namespace FESScript2.UserControls.SubUserControls
         }
         private int id;
 
-        public string Name
+        public new string Name
         {
             get
             {
                 return $"B{Id}";
+            }
+        }
+        public string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
             }
         }
 
@@ -70,7 +77,14 @@ namespace FESScript2.UserControls.SubUserControls
         {
             if (BlockDesign.MainWindow.isTypingContents)
             {
-                BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                if ((FESScript2.Creator.BlockDes.CommandType)BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == FESScript2.Creator.BlockDes.CommandType.StandartToBlockWrite || BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == null) 
+                { 
+                    BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                }
+                else
+                {
+                    BlockDesign.MainWindow.writeEvent.Invoke(RelativeName);
+                }
             }
             else
             {

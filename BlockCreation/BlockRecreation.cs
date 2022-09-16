@@ -126,7 +126,7 @@ namespace FESScript2.CodeWorks.BlockCreation
                     
                     content.Id = contentType.id;
                     content.Text = contentType.text;
-                    Grid.SetColumn(content, contentType.collumn);
+                    Grid.SetColumn(content, contentType.column);
                     contentGrid.Children.Add(content);
                     content.Padding = new System.Windows.Thickness(2.5, 0, 2.5, 0);
                 }
@@ -136,7 +136,7 @@ namespace FESScript2.CodeWorks.BlockCreation
                     
                     content.Id = contentType.id;
                     content.Text = contentType.text;
-                    Grid.SetColumn(content, contentType.collumn);
+                    Grid.SetColumn(content, contentType.column);
                     contentGrid.Children.Add(content);
                     content.Padding = new System.Windows.Thickness(2.5, 0, 2.5, 0);
                 }
@@ -147,7 +147,7 @@ namespace FESScript2.CodeWorks.BlockCreation
                     content.Id = contentType.id;
                     content.Text = contentType.text;
                     content.comboBox.IsEnabled = false;
-                    Grid.SetColumn(content, contentType.collumn);
+                    Grid.SetColumn(content, contentType.column);
                     content.Padding = new System.Windows.Thickness(2.5, 0, 2.5, 0);
 
                     contentGrid.Children.Add(content);
@@ -159,7 +159,7 @@ namespace FESScript2.CodeWorks.BlockCreation
                     content.Id = contentType.id;
                     content.Text = contentType.text;
                     content.checkBox.IsEnabled = false;
-                    Grid.SetColumn(content, contentType.collumn);
+                    Grid.SetColumn(content, contentType.column);
                     contentGrid.Children.Add(content);
                     content.Padding = new System.Windows.Thickness(2.5, 12.5, 2.5, 0);
                 }

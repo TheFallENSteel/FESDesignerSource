@@ -77,18 +77,40 @@ namespace FESScript2.UserControls.SubUserControls
         }
         private int id;
 
-        public string Name
+        public new string Name
         {
             get
             {
                 return $"C{Id}";
             }
         }
+        public string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
+            }
+        }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            FESScript2.Creator.BlockDes.DesignContentWindow window = new FESScript2.Creator.BlockDes.DesignContentWindow(ref this.contentType, typeof(Checkbox));
-            window.Show();
+            
+            if (BlockDesign.MainWindow.isTypingContents)
+            {
+                if (BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == (object)FESScript2.Creator.BlockDes.CommandType.StandartToBlockWrite || BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == null)
+                {
+                    BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                }
+                else
+                {
+                    BlockDesign.MainWindow.writeEvent.Invoke(RelativeName);
+                }
+            }
+            else
+            {
+                FESScript2.Creator.BlockDes.DesignContentWindow window = new FESScript2.Creator.BlockDes.DesignContentWindow(ref this.contentType, typeof(Checkbox));
+                window.Show();
+            }
         }
 
     }

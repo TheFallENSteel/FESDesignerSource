@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using FESScript2.UserControls.SubUserControls;
+using FESScript2.Creator.BlockDes;
 
 namespace BlockDesigning.BlockCreation
 {
@@ -10,20 +11,16 @@ namespace BlockDesigning.BlockCreation
             string returnString = "";
             returnString += $"U{blockType.id}";
             returnString += $"\nT{(int)blockType.type}";
-            foreach (var x in FESScript2.UserControls.GlobalVariable.GlobalVariables)
-            {
-                returnString += $@"\nG{(((VariableType)x.variableType.SelectedItem) == VariableType.Number ? "N" : ((VariableType)x.variableType.SelectedItem) == VariableType.String ? "S" : ((VariableType)x.variableType.SelectedItem) == VariableType.Bool ? "X" : "E")}|{x.variableName}|{x.initialValue}";
-            }
             foreach (var x in blockType.contents) 
             {
-                //returnString += $"\n{(x.type == typeof(TextBox) ? "B" : "L")}{x.id}|{x.collumn}|{x.text}";
+                //returnString += $"\n{(x.type == typeof(TextBox) ? "B" : "L")}{x.id}|{x.column}|{x.text}";
                 if (x.type == typeof(TextBox)) 
                 {
-                    returnString += $"\nB{x.id}|{x.collumn}|{x.text}";
+                    returnString += $"\nB{x.id}|{x.column}|{((x.text == "Sample Text") ? "" : x.text)}";
                 }
                 else if (x.type == typeof(TextLabel)) 
                 {
-                    returnString += $"\nL{x.id}|{x.collumn}|{x.text}";
+                    returnString += $"\nL{x.id}|{x.column}|{((x.text == "Sample Text") ? "" : x.text)}";
                 }
                 else if (x.type == typeof(Combobox))
                 {
@@ -33,18 +30,32 @@ namespace BlockDesigning.BlockCreation
                         string element = ((FESScript2.UserControls.SubUserControls.ContentArgs.ComboBoxArgs)x.ContentArgs).elements[i];
                         elements += $"{element}{((i + 1 == ((FESScript2.UserControls.SubUserControls.ContentArgs.ComboBoxArgs)x.ContentArgs).elements.Count) ? "" : "|") }";
                     }
-                    returnString += $"\nM{x.id}|{x.collumn}|{x.text}&{elements}";
+                    returnString += $"\nM{x.id}|{x.column}|{((x.text == "Sample Text") ? "" : x.text)}&{elements}";
                 }
                 else if (x.type == typeof(Checkbox))
                 {
-                    returnString += $"\nC{x.id}|{x.collumn}|{x.text}";
+                    returnString += $"\nC{x.id}|{x.column}|{((x.text == "Sample Text") ? "" : x.text)}";
                 }
             }
             foreach (var x in blockType.dots)
             {
                 returnString += $"\n{(x.io == IO.Input ? "I" : (x.io == IO.Output ? "O" : "E"))}{x.id}|{(int)x.dotType}";
             }
-            returnString += "\nEND\n";
+            switch(BlockDesign.MainWindow.mainWindow.commandType.commandType)
+            {
+                case (CommandType.StandartToBlockWrite):
+                    returnString += "\nEND\n";
+                    break;
+                case (CommandType.DirectCodeWrite):
+                    returnString += "\nFU\n";
+                    break;
+                case (CommandType.DirectVariableWrite):
+                    returnString += "\nFAKE\n";
+                    break;
+                default:
+                    returnString += "\nNotSelectedCommandType\n";
+                    break;
+            }
             returnString += contents;
             return returnString;
         }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32126.315
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockDesigning", "BlockDesigning.csproj", "{F600311C-6616-4345-92C8-2D568B635C1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FESDesigner", "FESDesigner.csproj", "{F600311C-6616-4345-92C8-2D568B635C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

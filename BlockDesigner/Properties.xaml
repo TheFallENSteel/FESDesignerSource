@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FESScript2.Creator.BlockDesigner"
+             xmlns:local="clr-namespace:FESScript2.Creator.BlockDes"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:SupportSettings="clr-namespace:FESScript2.Settings.Support"
              xmlns:SubUserControls="clr-namespace:FESScript2.UserControls.SubUserControls"
@@ -32,30 +32,29 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="directoryChooser" Grid.Column="0" Content="Save Block" Margin="25,0" Padding="5,0" Width="100" Height="30" Click="directoryChooser_Click"/>
 
             <Label Content="BlockType" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15, 10"/>
             <ComboBox Name="comboBox" Grid.Column="2" Margin="15, 10" ItemsSource="{Binding Source={StaticResource Type}}" Width="100" BorderBrush="#FF707070" InputScope="Xml" SelectionChanged="OnChange"/>
-            <Button Grid.Column="3" Content="Global Variables" Margin="15, 10" Padding="15,0" Click="Button_Click_1"/>
+            
      
-            <Button x:Name="addButton" Content="+" Grid.Column="4" Background="#FFE5E5E5" Foreground="#FF707070" Height="20"  VerticalContentAlignment="Center" FontSize="25" Click="Button_Click" HorizontalContentAlignment="Right" Padding="0,-10.75,0,0" Margin="50,0" HorizontalAlignment="Right" Width="20"/>
+            <Button x:Name="addButton" Content="+" Grid.Column="5" Background="#FFE5E5E5" Foreground="#FF707070" Height="20"  VerticalContentAlignment="Center" FontSize="25" Click="Button_Click" HorizontalContentAlignment="Right" Padding="0,-10.75,0.5,0" Margin="15,0" HorizontalAlignment="Right" Width="20"/>
+            <Button x:Name="clear" Content="Clear" Margin="15, 10" Padding="15,0" Grid.Column="4" Click="Clear"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Content="BlockName" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5, 10" Grid.Row="1"/>
-            <TextBox x:Name="blockName" Grid.Column="1" Margin="5, 10" VerticalAlignment="Center" Width="275" TextChanged="OnChange"/>
+            <TextBox x:Name="blockName" Grid.Column="1" Margin="5, 10" VerticalAlignment="Center" TextChanged="OnChange"/>
 
             <Label Content="BlockID" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5, 10"/>
             <TextBox x:Name="blockID" Grid.Column="3" Margin="5, 10" VerticalAlignment="Center" Width="75" TextChanged="OnChange"/>
-            <Button x:Name="clear" Content="Clear" Margin="15, 10" Padding="15,0" Grid.Column="4" Click="Clear"/>
         </Grid>
     </Grid>
 </UserControl>

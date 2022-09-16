@@ -30,6 +30,14 @@ namespace FESScript2.UserControls.SubUserControls
             }
         }
 
+        public new string RelativeName
+        {
+            get
+            {
+                return "$" + Name;
+            }
+        }
+
         public Dots(DotsType dotTypeDotType)
         {
             InitializeComponent();
@@ -65,8 +73,15 @@ namespace FESScript2.UserControls.SubUserControls
             if (BlockDesign.MainWindow.isTypingContents)
             {
                 if (DotType != Type.Action) 
-                { 
-                    BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                {
+                    if ((FESScript2.Creator.BlockDes.CommandType)BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == FESScript2.Creator.BlockDes.CommandType.StandartToBlockWrite || BlockDesign.MainWindow.mainWindow.commandType.box.SelectedItem == null)
+                    {
+                        BlockDesign.MainWindow.writeEvent.Invoke(Name);
+                    }
+                    else
+                    {
+                        BlockDesign.MainWindow.writeEvent.Invoke(RelativeName);
+                    }
                 }
                 else if (dotTypeDotType.io == IO.Output)
                 {

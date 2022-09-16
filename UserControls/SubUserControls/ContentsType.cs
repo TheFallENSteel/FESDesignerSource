@@ -15,7 +15,7 @@ namespace FESScript2.UserControls.SubUserControls
 
         public System.Type type;
         public int id;
-        public int collumn;
+        public int column;
         public string text;
         public string GetName()
         {

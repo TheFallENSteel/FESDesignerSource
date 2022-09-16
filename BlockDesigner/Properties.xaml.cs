@@ -139,12 +139,6 @@ namespace FESScript2.Creator.BlockDes
                 BlockDesigning.BlockCreation.SaveBlock.SaveBlockToFile(BlockDesign.MainWindow.blockType.blockType, BlockDesign.MainWindow.mainWindow.contents.Text, filePath);
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            FESScript2.BlockDesigner.GlobalVariablesWindow globalVariableWindow = new FESScript2.BlockDesigner.GlobalVariablesWindow();
-            globalVariableWindow.Show();
-        }
         private void Clear(object sender, RoutedEventArgs e)
         {
             BlockDesign.MainWindow.mainWindow.properites.comboBox.SelectedItem = null;
@@ -154,7 +148,6 @@ namespace FESScript2.Creator.BlockDes
             BlockDesign.MainWindow.blockType = new DesignBlockType();
             DesignBlockType.contents = new List<UserControls.SubUserControls.ContentsType>();
             DesignBlockType.dots = new List<UserControls.SubUserControls.DotsType>();
-            FESScript2.UserControls.GlobalVariable.GlobalVariables = new System.Collections.ObjectModel.ObservableCollection<UserControls.GlobalVariable>();
             BlockDesign.MainWindow.mainWindow.Properties_OnSomeChange(null, null);
 
         }
